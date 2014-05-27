@@ -12,6 +12,42 @@ define([ "jquery", "lib/core/ad_unit" ], function($, AdUnit) {
     template: "",
     topic: "",
 
+    /* jshint ignore:start */
+    sizeMapping: {
+      billboard: [
+        { browser: [ 980, 600 ], ad_sizes: [ [ 970, 250 ], [ 970, 66 ] ] },
+        { browser: [ 740, 380 ], ad_sizes: [ 728, 90 ] },
+        { browser: [ 0, 0 ], ad_sizes: [ 320, 50 ] }
+      ],
+      leaderboard: [
+        { browser: [ 980, 600 ], ad_sizes: [ 970, 66 ] },
+        { browser: [ 740, 380 ], ad_sizes: [ 728, 90 ] },
+        { browser: [ 0, 0 ], ad_sizes: [ 320, 50 ] }
+      ],
+      "leaderboard-content": [
+        { browser: [ 980, 600 ], ad_sizes: [ 970, 66 ] },
+        { browser: [ 740, 380 ], ad_sizes: [ 728, 90 ] },
+        { browser: [ 0, 0 ], ad_sizes: [ [ 300, 250 ], [ 320, 50 ] ] }
+      ],
+      mpu: [
+        { browser: [ 0, 0 ], ad_sizes: [ [ 394, 380 ], [ 300, 250 ] ] }
+      ],
+      "mpu-double": [
+        { browser: [ 740, 380 ], ad_sizes: [ [ 300, 600 ], [ 300, 250 ] ] },
+        { browser: [ 0, 0 ], ad_sizes: [ 300, 250 ] }
+      ],
+      "sponsor-tile": [
+        { browser: [ 0, 0 ], ad_sizes: [ 276,  32 ] }
+      ],
+      "sponsor-logo": [
+        { browser: [ 0, 0 ], ad_sizes: [ 150, 120 ] }
+      ],
+      "traffic-driver": [
+        { browser: [ 0, 0 ], ad_sizes: [ 192, 380 ] }
+      ],
+    },
+    /* jshint ignore:end */
+
     // Deprecated targeting properties
     adThm: "",
     adTnm: "",
