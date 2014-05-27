@@ -1,2 +1,14 @@
-- properties = properties || {}
-.adunit.adunit--leaderboard{ id: properties[:id] || "js-ad-leaderboard-#{Time.now.to_i}", data: { size: { mapping: properties[:size] || "leaderboard" }, extension: properties[:extension] || nil, targeting: properties[:targeting] || nil, context: properties[:context] || nil } }
+:ruby
+
+  properties = properties || {}
+
+  data_props = {
+    size: { mapping: properties[:size] || "leaderboard" },
+    extension: properties[:extension] || nil,
+    targeting: properties[:targeting] || nil,
+    context: properties[:context] || nil
+  }
+
+  id = properties[:id] || "js-ad-leaderboard-#{Time.now.to_i}"
+
+.adunit.adunit--leaderboard{ id: id, data: data_props }

@@ -1,2 +1,14 @@
-- properties = properties || {}
-.adunit.adunit--traffic-driver{ id: properties[:id] || "js-ad-trafficDriver-#{Time.now.to_i}", data: { size: { mapping: properties[:size] || "traffic-driver" }, extension: properties[:extension] || nil, targeting: properties[:targeting] || nil } }
+:ruby
+
+  properties = properties || {}
+
+  data_props = {
+    size: { mapping: properties[:size] || "traffic-driver" },
+    extension: properties[:extension] || nil,
+    targeting: properties[:targeting] || nil,
+    context: properties[:context] || nil
+  }
+
+  id = properties[:id] || "js-ad-trafficDriver-#{Time.now.to_i}"
+
+.adunit.adunit--traffic-driver{ id: id, data: data_props }

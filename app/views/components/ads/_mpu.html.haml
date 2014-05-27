@@ -1,2 +1,14 @@
-- properties = properties || {}
-.adunit.adunit--mpu{ id: properties[:id] || "js-ad-mpu-#{Time.now.to_i}", data: { size: { mapping: properties[:size] || "mpu" }, extension: properties[:extension] || nil, targeting: properties[:targeting] || nil } }
+:ruby
+
+  properties = properties || {}
+
+  data_props = {
+    size: { mapping: properties[:size] || "mpu" },
+    extension: properties[:extension] || nil,
+    targeting: properties[:targeting] || nil,
+    context: properties[:context] || nil
+  }
+
+  id = properties[:id] || "js-ad-mpu-#{Time.now.to_i}"
+
+.adunit.adunit--mpu{ id: id, data: data_props }
