@@ -159,9 +159,6 @@ define([ "jquery", "lib/core/ad_unit" ], function($, AdUnit) {
       .filter(function(index) {
         return self.$adunits.eq(index).data("googleAdUnit") === undefined;
       })
-      .filter(function(index) {
-        return self._filterAdUnitDimensions(self.$adunits.eq(index)).length;
-      })
       .dfp(this.pluginConfig);
   };
 
@@ -179,25 +176,6 @@ define([ "jquery", "lib/core/ad_unit" ], function($, AdUnit) {
     } else {
       window.googletag.pubads().refresh();
     }
-  };
-
-  AdManager.prototype._filterAdUnitDimensions = function($adunit) {
-    var filteredGroups = [],
-        context = $adunit.data("context"),
-        contextWidth = $(context || "body").width(),
-        sizeGroups = $adunit.data("dimensions").split(",");
-
-    for (var i = 0, len = sizeGroups.length; i < len; i++) {
-      var sizeSet = sizeGroups[i].split("x");
-
-      if (parseInt(sizeSet[0], 10) <= contextWidth) {
-        filteredGroups.push(sizeGroups[i]);
-      }
-    }
-
-    $adunit.data("dimensions", filteredGroups.join(","));
-
-    return filteredGroups;
   };
 
   return AdManager;
