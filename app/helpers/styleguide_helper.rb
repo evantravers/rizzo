@@ -47,6 +47,10 @@ module StyleguideHelper
       {
         title: "CSS Utilities",
         slug: "/css-utilities"
+      },
+      {
+        title: "Page layout",
+        slug: "/page-layout"
       }
     ]
   end
@@ -180,6 +184,25 @@ module StyleguideHelper
             {
               name: "Swipe",
               slug: "swipe"
+            }
+          ]
+        }
+      ],
+      page_layout: [
+        {
+          title: "Page Layout",
+          items: [
+            {
+              name: "Using Rizzo Layouts",
+              slug: "using-rizzo-layouts"
+            },
+            {
+              name: "Rows",
+              slug: "rows"
+            },
+            {
+              name: "Content Structure",
+              slug: "content-structure"
             }
           ]
         }

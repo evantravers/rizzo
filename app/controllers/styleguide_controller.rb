@@ -2,6 +2,18 @@ class StyleguideController < GlobalController
 
   layout proc{|c| c.request.xhr? ? false : "styleguide" }
 
+  def usingRizzoLayouts
+    render '/styleguide/page-layout/using-rizzo-layouts'
+  end
+
+  def rows
+    render '/styleguide/page-layout/rows'
+  end
+
+  def contentStructure
+    render '/styleguide/page-layout/content-structure'
+  end
+
   def interfaceIcons
     render '/styleguide/design-elements/icons/interface'
   end

@@ -45,6 +45,7 @@ Rizzo::Application.routes.draw do
   get 'styleguide/ui-components',   to: redirect('/styleguide/ui-components/cards')
   get 'styleguide/js-components',   to: redirect('/styleguide/js-components/toggle-active')
   get 'styleguide/css-utilities/',  to: redirect('/styleguide/css-utilities/proportional-grid')
+  get 'styleguide/page-layout/',    to: redirect('/styleguide/page-layout/using-rizzo-layouts')
 
   get 'styleguide/design-elements/colours'                => 'styleguide#colours'
   get 'styleguide/design-elements/ui-colours'             => 'styleguide#uiColours'
@@ -52,6 +53,9 @@ Rizzo::Application.routes.draw do
   get 'styleguide/design-elements/icons/interface'        => 'styleguide#interfaceIcons'
   get 'styleguide/design-elements/icons/destination'      => 'styleguide#destinationIcons'
   get 'styleguide/design-elements/icons/interests'        => 'styleguide#interestIcons'
+  get '/styleguide/page-layout/using-rizzo-layouts'       => 'styleguide#usingRizzoLayouts'
+  get '/styleguide/page-layout/rows'                      => 'styleguide#rows'
+  get '/styleguide/page-layout/content-structure'         => 'styleguide#contentStructure'
   get 'styleguide/ui-components/secondary-nav'            => 'styleguide#secondaryNavigation'
   get 'styleguide/ui-components/left-nav'                 => 'styleguide#leftNavigation'
   get 'styleguide/ui-components/navigational_dropdown'    => 'styleguide#navigational_dropdown'
