@@ -1,6 +1,6 @@
-require([ "public/assets/javascripts/lib/core/ad_manager_v2" ], function(AdManager) {
+require([ "public/assets/javascripts/lib/core/ad_manager" ], function(AdManager) {
 
-  describe("Ad Manager v2", function() {
+  describe("Ad Manager", function() {
 
     var instance;
 

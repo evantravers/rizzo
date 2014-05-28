@@ -3,7 +3,7 @@ define [
   'lib/page/swipe',
   'lib/core/authenticator',
   'lib/core/shopping_cart',
-  'lib/core/ad_manager_v2',
+  'lib/core/ad_manager',
   'lib/core/cookie_compliance',
   'lib/components/select_group_manager',
   "lib/core/feature_detect"
