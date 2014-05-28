@@ -6,34 +6,27 @@ define([ "jquery", "lib/core/ad_unit" ], function($, AdUnit) {
     adunits: ".adunit",
     listener: "#js-row--content",
 
-    // Ad targeting properties
-    layers: [ "2009.lonelyplanet" ],
-    theme: "",
-    template: "",
-    topic: "",
-
     /* jshint ignore:start */
     sizeMapping: {
       billboard: [
-        { browser: [ 980, 600 ], ad_sizes: [ [ 970, 250 ], [ 970, 66 ] ] },
-        { browser: [ 740, 380 ], ad_sizes: [ 728, 90 ] },
+        { browser: [ 980, 0 ], ad_sizes: [ [ 970, 250 ], [ 728, 90 ] ] },
+        { browser: [ 728, 0 ], ad_sizes: [ 728, 90 ] },
         { browser: [ 0, 0 ], ad_sizes: [ 320, 50 ] }
       ],
       leaderboard: [
-        { browser: [ 980, 600 ], ad_sizes: [ 970, 66 ] },
-        { browser: [ 740, 380 ], ad_sizes: [ 728, 90 ] },
+        { browser: [ 980, 0 ], ad_sizes: [ [ 970, 66 ], [ 728, 90 ] ] },
+        { browser: [ 728, 0 ], ad_sizes: [ 728, 90 ] },
         { browser: [ 0, 0 ], ad_sizes: [ 320, 50 ] }
       ],
       "leaderboard-content": [
-        { browser: [ 980, 600 ], ad_sizes: [ 970, 66 ] },
-        { browser: [ 740, 380 ], ad_sizes: [ 728, 90 ] },
-        { browser: [ 0, 0 ], ad_sizes: [ [ 300, 250 ], [ 320, 50 ] ] }
+        { browser: [ 728, 0 ], ad_sizes: [ 728, 90 ] },
+        { browser: [ 0, 0 ], ad_sizes: [ 320, 50 ] }
       ],
       mpu: [
-        { browser: [ 0, 0 ], ad_sizes: [ [ 394, 380 ], [ 300, 250 ] ] }
+        { browser: [ 0, 0 ], ad_sizes: [ 300, 250 ] }
       ],
       "mpu-double": [
-        { browser: [ 740, 380 ], ad_sizes: [ [ 300, 600 ], [ 300, 250 ] ] },
+        { browser: [ 728, 0 ], ad_sizes: [ [ 300, 600 ], [ 300, 250 ] ] },
         { browser: [ 0, 0 ], ad_sizes: [ 300, 250 ] }
       ],
       "sponsor-tile": [
@@ -45,8 +38,17 @@ define([ "jquery", "lib/core/ad_unit" ], function($, AdUnit) {
       "traffic-driver": [
         { browser: [ 0, 0 ], ad_sizes: [ 192, 380 ] }
       ],
+      background: [
+        { browser: [ 980, 0 ], ad_sizes: [ 1, 1 ] }
+      ]
     },
     /* jshint ignore:end */
+
+    // Ad targeting properties
+    layers: [ "2009.lonelyplanet" ],
+    theme: "",
+    template: "",
+    topic: "",
 
     // Deprecated targeting properties
     adThm: "",
@@ -69,6 +71,7 @@ define([ "jquery", "lib/core/ad_unit" ], function($, AdUnit) {
       dfpID: this.getNetworkID(),
       setTargeting: this.formatKeywords(),
       namespace: this.config.layers.join("/"),
+      sizeMapping: this.config.sizeMapping,
       collapseEmptyDivs: true,
       enableSingleRequest: false,
       afterEachAdLoaded: function($adunit) {
