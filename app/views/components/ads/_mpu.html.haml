@@ -1,14 +1,11 @@
 :ruby
 
   attrs = {
-    id: "js-ad-mpu-#{Time.now.to_i}",
-    data: {
-      size: { mapping: "mpu" },
-      targeting: { position: nil },
-      extension: nil
-    }
+    size: { mapping: "mpu" },
+    targeting: { position: nil },
+    extension: nil
   }
 
-  attrs.merge!(properties) if properties
+  attrs.merge!(properties) if defined? properties
 
-.adunit.adunit--mpu{ id: attrs[:id], data: attrs[:data] }
+.adunit.adunit--mpu{ id: "js-ad-mpu-#{Time.now.to_i}", data: attrs }

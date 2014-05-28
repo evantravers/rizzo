@@ -1,14 +1,11 @@
 :ruby
 
   attrs = {
-    id: "js-ad-sponsorTile-#{Time.now.to_i}",
-    data: {
-      size: { mapping: "sponsor-tile" },
-      targeting: { position: nil },
-      extension: nil
-    }
+    size: { mapping: "sponsor-tile" },
+    targeting: { position: nil },
+    extension: nil
   }
 
-  attrs.merge!(properties) if properties
+  attrs.merge!(properties) if defined? properties
 
-.adunit.adunit--sponsortile{ id: attrs[:id], data: attrs[:data] }
+.adunit.adunit--sponsortile{ id: "js-ad-sponsorTile-#{Time.now.to_i}", data: attrs }

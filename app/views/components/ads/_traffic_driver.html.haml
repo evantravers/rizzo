@@ -1,14 +1,11 @@
 :ruby
 
   attrs = {
-    id: "js-ad-trafficDriver-#{Time.now.to_i}",
-    data: {
-      size: { mapping: "traffic-driver" },
-      targeting: { position: nil },
-      extension: nil
-    }
+    size: { mapping: "traffic-driver" },
+    targeting: { position: nil },
+    extension: nil
   }
 
-  attrs.merge!(properties) if properties
+  attrs.merge!(properties) if defined? properties
 
-.adunit.adunit--traffic-driver{ id: attrs[:id], data: attrs[:data] }
+.adunit.adunit--traffic-driver{ id: "js-ad-trafficDriver-#{Time.now.to_i}", data: attrs }

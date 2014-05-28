@@ -1,14 +1,11 @@
 :ruby
 
   attrs = {
-    id: "js-ad-leaderboard-#{Time.now.to_i}",
-    data: {
-      size: { mapping: "leaderboard" },
-      targeting: { position: nil },
-      extension: nil
-    }
+    size: { mapping: "leaderboard" },
+    targeting: { position: nil },
+    extension: nil
   }
 
-  attrs.merge!(properties) if properties
+  attrs.merge!(properties) if defined? properties
 
-.adunit.adunit--leaderboard{ id: attrs[:id], data: attrs[:data] }
+.adunit.adunit--leaderboard{ id: "js-ad-leaderboard-#{Time.now.to_i}", data: attrs }
