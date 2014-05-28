@@ -4,9 +4,14 @@
 
 .row--sponsored
   @extend %transition--slower
-  min-height: 98px
+  min-height: 100px
   padding: 16px 0
   overflow: hidden
+
+  .responsive &
+    min-height: 60px
+    +respond-to(728)
+      min-height: 100px
 
   &.is-closed
     min-height: 0
@@ -19,25 +24,32 @@
 
 .row--leaderboard
   +z-layer(modal)
-  background-color: $row-leaderboard
   position: relative
-  &.footer-leaderboard
-    background-color: #e7ebee
 
 .ad-leaderboard
   text-align: center
+  line-height: 100px
+
+  .responsive &
+    line-height: 60px
+    +respond-to(728)
+      line-height: 100px
 
 .ad-leaderboard__inner
   @extend %inline-block
-  position: relative
   display: inline-block
-  border: 3px solid $header-blue
-  vertical-align: bottom
-  border-radius: 2px
-  background-color: $row-primary--darker
+  vertical-align: middle
 
-  &.footer
-    border: none
+.row--leaderboard--header
+  background-color: $row-leaderboard
+
+  .ad-leaderboard__inner
+    border: 3px solid $header-blue
+    border-radius: 2px
+    background-color: $row-primary--darker
+
+.row--leaderboard--footer
+  background: darken($body-background, 2.5%)
 
 // ----------------------------------------------------------------------------
 // Page billboard
@@ -48,10 +60,16 @@
 
 .ad-billboard
   text-align: center
+  line-height: 100px
+
+  .responsive &
+    line-height: 60px
+    +respond-to(728)
+      line-height: 100px
 
 .ad-billboard__inner
   display: inline-block
-  vertical-align: bottom
+  vertical-align: middle
 
 // ----------------------------------------------------------------------------
 // Sponsor tile
