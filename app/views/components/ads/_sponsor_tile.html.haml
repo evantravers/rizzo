@@ -1,14 +1,14 @@
 :ruby
 
-  properties = properties || {}
-
-  data_props = {
-    size: { mapping: properties[:size] || "sponsor-tile" },
-    extension: properties[:extension] || nil,
-    targeting: properties[:targeting] || nil,
-    context: properties[:context] || nil
+  attrs = {
+    id: "js-ad-sponsorTile-#{Time.now.to_i}",
+    data: {
+      size: { mapping: "sponsor-tile" },
+      targeting: { position: nil },
+      extension: nil
+    }
   }
 
-  id = properties[:id] || "js-ad-sponsorTile-#{Time.now.to_i}"
+  attrs.merge!(properties) if properties
 
-.adunit.adunit--sponsortile{ id: id, data: data_props }
+.adunit.adunit--sponsortile{ id: attrs[:id], data: attrs[:data] }

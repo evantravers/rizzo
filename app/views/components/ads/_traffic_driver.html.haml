@@ -1,14 +1,14 @@
 :ruby
 
-  properties = properties || {}
-
-  data_props = {
-    size: { mapping: properties[:size] || "traffic-driver" },
-    extension: properties[:extension] || nil,
-    targeting: properties[:targeting] || nil,
-    context: properties[:context] || nil
+  attrs = {
+    id: "js-ad-trafficDriver-#{Time.now.to_i}",
+    data: {
+      size: { mapping: "traffic-driver" },
+      targeting: { position: nil },
+      extension: nil
+    }
   }
 
-  id = properties[:id] || "js-ad-trafficDriver-#{Time.now.to_i}"
+  attrs.merge!(properties) if properties
 
-.adunit.adunit--traffic-driver{ id: id, data: data_props }
+.adunit.adunit--traffic-driver{ id: attrs[:id], data: attrs[:data] }

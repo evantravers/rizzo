@@ -1,14 +1,14 @@
 :ruby
 
-  properties = properties || {}
-
-  data_props = {
-    size: { mapping: properties[:size] || "leaderboard" },
-    extension: properties[:extension] || nil,
-    targeting: properties[:targeting] || nil,
-    context: properties[:context] || nil
+  attrs = {
+    id: "js-ad-leaderboard-#{Time.now.to_i}",
+    data: {
+      size: { mapping: "leaderboard" },
+      targeting: { position: nil },
+      extension: nil
+    }
   }
 
-  id = properties[:id] || "js-ad-leaderboard-#{Time.now.to_i}"
+  attrs.merge!(properties) if properties
 
-.adunit.adunit--leaderboard{ id: id, data: data_props }
+.adunit.adunit--leaderboard{ id: attrs[:id], data: attrs[:data] }
